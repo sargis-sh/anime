@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   SafeArea: {
     paddingTop: 35,
-    backgroundColor: "#D61C4E",
+    backgroundColor: "rgb(0, 122, 255)",
     flex: 0.1,
     alignItems: "center",
     justifyContent: "center"

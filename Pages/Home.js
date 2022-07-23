@@ -1,13 +1,15 @@
+import { useState, useEffect } from 'react';
 import Post from '../Components/Post/Post';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TextInput } from 'react-native';
+// import {SearchObjj} from '../Components/Search/Search';
 // import './Home.css';
 const Home = () => {
 //   var count = prompt("Enter the post count!")
 //   parseFloat(count);
   var rows = [];
-  (rows)
+
   for (let index = 0; index < 10; index++) {
-    rows.push(<Post num={index} key={index}/>)
+    rows.push(<Post num={index} key={index}/>);
   }
 
   return (
