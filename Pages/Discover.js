@@ -1,4 +1,4 @@
-import Post from '../Components/Post/Post';
+import MyComponent from '../Components/Post/Search';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
 const profile = {
@@ -8,21 +8,21 @@ const profile = {
 }
 
 const Discover = () => {
+    var rows = [];
+    for (let index = 0; index < 1; index++) {
+        if(!profile.following.includes(index+1)){
+        rows.push(<MyComponent num={index} key={index}/>)}
+    }
     return(
-        <View style={styles.View}>
-            <Text>Discover!</Text>
+        <View style={{ flex: 1 }}>
+            <ScrollView>
+                <Header></Header>
+                <Text style={{ fontWeight: 'bold', fontSize: 60, margin:20 }}>Search for any anime you want!
+                </Text>
+                {rows}
+            </ScrollView>
         </View>
     )
-};
-
-const styles = StyleSheet.create({
-    View: {
-      flex: 1,
-      width: "100%",
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: "#282c34"
-    }
-});
-
+  };
+  
 export default Discover;
