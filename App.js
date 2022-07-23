@@ -2,13 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './Components/Tab/Tab';
+import Header from './Components/Header';
 
 export default function App() {
   return (
     <View style={styles.View}>
       <SafeAreaView style={styles.SafeArea}>
-        <Text style={styles.Header}>ANIME REACT APP</Text>
+        <Header style={styles.SafeArea}></Header>
       </SafeAreaView>
+      
       <NavigationContainer style={styles.App}>
         <MyTabs/>
       </NavigationContainer>
@@ -19,14 +21,12 @@ export default function App() {
 const styles = StyleSheet.create({
   View: {
     backgroundColor: "#000",
-    height: "100%"
+    height: "100%",
+    width: "100%"
   },
   SafeArea: {
-    paddingTop: 35,
+    width: "100%",
     backgroundColor: "rgb(0, 122, 255)",
-    flex: 0.1,
-    alignItems: "center",
-    justifyContent: "center"
   },
   App: {
     flex: 0.9,

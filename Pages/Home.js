@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Post from '../Components/Post/Post';
-import Header from '../Components/Header';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 // import './Home.css';
 const Home = () => {
@@ -15,7 +14,6 @@ const Home = () => {
   return (
     <View style={styles.Home}>
       <ScrollView>
-        <Header></Header>
         <View style={styles.View}>
             {rows}
         </View> 

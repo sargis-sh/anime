@@ -1,39 +1,61 @@
-import "./Header.css";
-import {  Button, StyleSheet, View } from "react-native";
-
-
+// import "./Header.css";
+import {  Button, StyleSheet, View, Text } from "react-native";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import { Icon } from "react-native-vector-icons/Icon";
+import { TouchableHighlight } from "react-native";
 
 function Header() {
   return (
-    <header className="header">
-      <div className="title"> 📙AnimeLibrary</div>
-      <View style={styles.buttonContainer}>  
-                    <Button  
-                        title="Login" 
-                        
-                    />  
-                </View> 
-                <View style={styles.buttonContainer}>  
-                    <Button   
-                        title="Signup"  
-                    />  
-                </View> 
-    </header>
+    <View style={styles.Header}>
+      <View>
+        <Text style={styles.Title}>📙AnimeLibrary</Text>
+      </View>
+      <View style={styles.ButtonContainer}>
+        <TouchableHighlight style={styles.Button}>
+          <Text style={styles.ButtonText}>Sign In</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={styles.Button}>
+          <Text style={styles.ButtonText}>Sign Up</Text>
+        </TouchableHighlight> 
+      </View>
+    </View>
   );
 }
 const styles = StyleSheet.create({  
- 
-  buttonContainer: {
-      width: "10%",
-      margin:10,
-      justifyContent:'space-between',
-      flex: 2,
-      right: 20,
-      left: 100,
-      button: 0,
-      flexDirection: 'column', 
-    
-  },  
- 
+  Header: {
+    paddingTop: 20,
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    height: "auto",
+    backgroundColor: "#0d0c39",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  ButtonContainer: {
+    flexDirection: "row",
+    height: 100,
+    alignItems: "center",
+  },
+  ButtonText:{
+    fontSize: 17,
+    color: "#272727",
+  },
+  Button: {
+    margin: 33.3,
+    height: 40,
+    width:100,
+    borderRadius: 6,
+    padding: 10,
+    backgroundColor: "#F58216",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  Title: {
+    margin: 30,
+    fontSize: 40,
+    color: "whitesmoke",
+    textAlign: "left"
+  }
 })  
 export default Header;
