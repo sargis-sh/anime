@@ -1,0 +1,16 @@
+.header {
+    padding:20px 10px 0px 20px;
+    height:100px;
+     background-color: #0d0c39; 
+      box-shadow: 1px 3px 10px black;
+       display: flex; 
+      justify-content: flex-end;  
+    }
+    
+    .title {
+      font-size: 40px;
+      color: whitesmoke;
+      text-shadow: 2px 7px 8px black;
+      text-align: left;
+    }
+  

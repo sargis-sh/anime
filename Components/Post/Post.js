@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
+
 // import './Post.css';
 import './Helper.js';
 import json from '../../Helpers/Helper.js';
