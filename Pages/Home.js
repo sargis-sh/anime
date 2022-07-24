@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { objects } from '../Components/Post/Post';
 // import './Home.css';
+var rows = [];
+
 const Home = () => {
 //   var count = prompt("Enter the post count!")
 //   parseFloat(count);
-  var rows = [];
-
+  
   for (let index = 0; index < 10; index++) {
-    rows.push(<Post num={index} key={index}/>);
+    rows.push(<Post searchText="true" num={index} key={index}/>);
   }
 
   return (
@@ -35,4 +37,5 @@ const styles = StyleSheet.create({
       flexWrap: 'wrap'
     }
 });
+
 export default Home;

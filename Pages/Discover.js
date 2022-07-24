@@ -1,24 +1,43 @@
-import MyComponent from '../Components/Post/Search';
+// import MyComponent from '../Components/Post/Search';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
-
-const profile = {
-    id: 1,
-    username: "myUser",
-    following: [2, 5, 8, 33, 58, 72, 73, 91]
-}
-
+import Post from '../Components/Post/Post';
+import { TextInput } from 'react-native-paper';
+import React from 'react';
+import { useEffect, useState } from 'react';
+var rows = [];
+import { objects } from '../Components/Post/Post';
 const Discover = () => {
-    var rows = [];
-    for (let index = 0; index < 1; index++) {
-        if(!profile.following.includes(index+1)){
-        rows.push(<MyComponent num={index} key={index}/>)}
-    }
+    const [searchQuery, setSearchQuery] = React.useState('');
+    useEffect(()=>{
+        rows = [];
+        console.log(searchQuery);
+        for (let index = 0; index < 10; index++) {
+            if(objects[index].animeObjectName.toUpperCase().includes(searchQuery.toUpperCase().trim().replace(/\s/g, ""))){
+                console.log("ejnwdskjwejks")
+        rows.push(<Post num={index} key={index+1} />);
+            }
+        }
+    }, []);
+    
+    
+    
     return(
         <View style={styles.View}>
             <ScrollView>
+                <View>
+            <View style ={styles.search}>
+                <TextInput
+                    placeholder="Search"
+                    onChangeText={(value) => {
+                        setSearchQuery(value)
+                      }}
+                    value={searchQuery}
+                />
+            </View>
                 <Text style={{ fontWeight: 'bold', fontSize: 60, margin:20 }}>Search for any anime you want!
                 </Text>
                 {rows}
+                </View>
             </ScrollView>
         </View>
     )
