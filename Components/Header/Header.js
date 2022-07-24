@@ -4,7 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
 
-function Header() {
+export default function Header() {
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
@@ -59,4 +59,3 @@ const styles = StyleSheet.create({
     textAlign: "left"
   }
 })  
-export default Header;

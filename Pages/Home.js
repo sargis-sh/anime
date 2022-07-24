@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { objects } from '../Components/Post/Post';

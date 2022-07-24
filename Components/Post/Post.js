@@ -33,9 +33,7 @@ function Post(num, searchText) {
             setAnimeCount(postResult.episodeCount);
             setAnimeRating(postResult.ageRatingGuide);
             setAnimeJapTitle(postResult.titles.ja_jp);
-            
             objects.push({animeObjectName: postResult.canonicalTitle});
-            console.log(objects);
         //     setPostTitle(postResult);
         //     setPostAuthor(postResult[num.num].title);
         //     setPostBody(postResult[num.num].body);
@@ -69,7 +67,7 @@ function Post(num, searchText) {
           //   );
           // }else{
     return (  
-    <View className="Post">
+    <View>
         
         <View style={styles.MovieCard} id="bright">
   <View style={styles.InfoSection}>
