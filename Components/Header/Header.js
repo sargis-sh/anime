@@ -11,10 +11,10 @@ function Header() {
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button}>
+        <TouchableHighlight style={styles.Button} onPress={() => { }}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button}>
+        <TouchableHighlight style={styles.Button} onPress={() => { }}>
           <Text style={styles.ButtonText}>Sign Up</Text>
         </TouchableHighlight> 
       </View>
