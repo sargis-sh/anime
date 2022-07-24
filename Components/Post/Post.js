@@ -7,9 +7,10 @@ import './Helper.js';
 import json from '../../Helpers/Helper.js';
 // import Skeleton from '@mui/material/Skeleton';
 // import Stack from '@mui/material/Stack';
-
-function Post(num) {
-  
+export const objects = [];
+function Post(num, searchText) {
+    // searchText = "true";
+    const [text, setText] = useState();
     const [isLoading, SetIsLoading] = useState(true);
     const [animeName, setAnimeName] = useState();
     const [animeImage, setAnimeImage] = useState();
@@ -17,9 +18,12 @@ function Post(num) {
     const [animeRating, setAnimeRating] = useState();
     const [animeJapTitle, setAnimeJapTitle] = useState();
     // const [animeImage, setAnimeImage] = useState();
+    // setText(searchText);
+    // console.log(searchText.searchText)
+    
     useEffect(() => {
-      
         try{
+          
         const getData = async () => {
             let postHREF = await json.get('/anime');
             let postResult = postHREF.data.data[num.num].attributes;
@@ -29,6 +33,7 @@ function Post(num) {
             setAnimeCount(postResult.episodeCount);
             setAnimeRating(postResult.ageRatingGuide);
             setAnimeJapTitle(postResult.titles.ja_jp);
+            objects.push({animeObjectName: postResult.canonicalTitle});
         //     setPostTitle(postResult);
         //     setPostAuthor(postResult[num.num].title);
         //     setPostBody(postResult[num.num].body);
@@ -56,8 +61,13 @@ function Post(num) {
         var divStyle = {
             backgroundImage: 'url(' + animeImage + ')',
           };
+          // if(animeName==searchText){
+          //   return(
+          //     <></>
+          //   );
+          // }else{
     return (  
-    <View className="Post">
+    <View>
         
         <View style={styles.MovieCard} id="bright">
   <View style={styles.InfoSection}>
@@ -80,8 +90,7 @@ function Post(num) {
     </View>
     );
     }
-    
-}
+  }
 
 const styles = StyleSheet.create({
   AnimeImage: {
@@ -159,7 +168,6 @@ const styles = StyleSheet.create({
 });
 
 export default Post;
-
 
 
 // // Searching using Search Bar Filter in React Native List View

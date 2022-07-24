@@ -4,10 +4,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
 
-function Header() {
+export default function Header() {
   return (
     <View style={styles.Header}>
-      <View>
+      <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
@@ -23,7 +23,7 @@ function Header() {
 }
 const styles = StyleSheet.create({  
   Header: {
-    paddingTop: 20,
+    // padding: 20,
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ButtonContainer: {
+    margin: 20,
     flexDirection: "row",
-    height: 100,
+    // height: 100,
     alignItems: "center",
   },
   ButtonText:{
@@ -42,7 +43,8 @@ const styles = StyleSheet.create({
     color: "#272727",
   },
   Button: {
-    margin: 33.3,
+    marginRight: 28.3,
+    marginLeft: 28.3,
     height: 40,
     width:100,
     borderRadius: 6,
@@ -52,10 +54,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   Title: {
-    margin: 30,
     fontSize: 40,
     color: "whitesmoke",
     textAlign: "left"
   }
 })  
-export default Header;
