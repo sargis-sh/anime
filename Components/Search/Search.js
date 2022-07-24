@@ -1,15 +1,32 @@
-// import { TextInput, SafeAreaView, View } from "react-native-paper"; 
+import React from 'react';
+import {StyleSheet,  View } from 'react-native';
+import { Searchbar } from 'react-native-paper';
 
-// const Search = () => {
-//     // const [search, setSearch] = useState();
-//     return(
-//         <View style={{padding: 10}}>
-//         <TextInput
-//         style={{height: 40}}
-//         placeholder="Type here to translate!"
-//         />
-//         </View>
-//     );
-// }
 
-// export default Search;
+const MyComponent = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  const onChangeSearch = query => setSearchQuery(query);
+
+  return (
+    <View style ={styles.search}>
+    <Searchbar
+      placeholder="Search"
+      onChangeText={onChangeSearch}
+      value={searchQuery}
+    />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({  
+ 
+    search: {
+        width: "70%",
+        margin:10, 
+        backgroundColor: 'white',
+        borderColor: '#ffff'
+    },  
+   
+  })  
+export default MyComponent;

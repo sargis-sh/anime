@@ -1,4 +1,4 @@
-import MyComponent from '../Components/Post/Search';
+import MyComponent from '../Components/Search/Search';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
 const profile = {
@@ -16,6 +16,7 @@ const Discover = () => {
     return(
         <View style={styles.View}>
             <ScrollView>
+             
                 <Text style={{ fontWeight: 'bold', fontSize: 60, margin:20 }}>Search for any anime you want!
                 </Text>
                 {rows}
