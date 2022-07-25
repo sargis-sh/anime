@@ -3,6 +3,11 @@ import {  Button, StyleSheet, View, Text } from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
+import LoginForm from '../../Pages/SignIn';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MyStack from "./Nav";
 
 export default function Header() {
   return (
@@ -11,7 +16,7 @@ export default function Header() {
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button} onPress={() => { }}>
+        <TouchableHighlight style={styles.Button}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.Button} onPress={() => { }}>

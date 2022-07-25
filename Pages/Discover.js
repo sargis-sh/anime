@@ -100,5 +100,10 @@ const styles = StyleSheet.create({
       width: "100%",
       alignItems:'center',
       justifyContent:'center',
+    },
+    title: {
+      fontSize: 25,
+      color: "#fff",
+      margin: 20
     }
   });
