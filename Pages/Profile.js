@@ -37,7 +37,12 @@ const Profile = () => {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text>Edit Profile</Text>  
               </TouchableOpacity>              
-             
+           <Text style = {styles.fav}>Favourite Characters</Text>
+                <View style ={styles.imagecontainer}>
+                <Image style={styles.hero} source={require('../assets/lilush.jpg')}/>
+                <Image style={styles.hero} source={require('../assets/vanitas.jpg')}/>
+                <Image style={styles.hero} source={require('../assets/levi.png')}/>
+                </View>
             </View>
         </View>
       </View>
@@ -50,6 +55,21 @@ const Profile = () => {
     header:{
         backgroundColor: "#00BFFF",
         height:200,
+      },
+      imagecontainer:{
+        flexDirection:'row',
+      },
+      hero:{
+        width: 130,
+        height: 130,
+        borderRadius: 63,
+        borderWidth: 4,
+        borderColor: "white",
+        flexDirection:'row',
+        justifyContent: "center",
+        alignItems: "center",
+         position: "relative",
+         margin: 24
       },
       avatar: {
         width: 130,
@@ -65,6 +85,12 @@ const Profile = () => {
       name:{
         fontSize:22,
         color:"#FFFFFF",
+        fontWeight:'600',
+      },
+      fav:{  
+        margin:10,
+        fontSize:22,
+        color:"#0000FF",
         fontWeight:'600',
       },
       body:{
@@ -100,7 +126,7 @@ const Profile = () => {
         marginBottom:20,
         width:250,
         borderRadius:30,
-        backgroundColor: "#b4b4b4",
+        backgroundColor: "#9400D3",
       },
 });
 

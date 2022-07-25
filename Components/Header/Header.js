@@ -4,22 +4,23 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
 import LoginForm from '../../Pages/SignIn';
+import SignupForm from "../../Pages/SignUp";
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MyStack from "./Nav";
 
-export default function Header() {
+export default function Header({navigation}) {
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button}>
+        <TouchableHighlight style={styles.Button} onPress={() => this.props.navigation.navigate('SignupForm')}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button} onPress={() => { }}>
+        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('LoginForm')}>
           <Text style={styles.ButtonText}>Sign Up</Text>
         </TouchableHighlight> 
       </View>

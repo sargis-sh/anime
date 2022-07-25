@@ -1,23 +1,20 @@
 import LoginForm from '../../Pages/SignIn';
+import Home from '../../Pages/Home';
+import MyTabs from '../Tab/Tab';
 import { View, Text, StyleSheet} from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-const Stack = createNativeStackNavigator();
-export default function MyStack (){
-  return (
-      <View style={styles.Header}>
-          <Text>bcjkbsdjkb</Text><NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={LoginForm}
-          options={{ title: 'LoginForm' }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer></View>
-    
-  );
-};
+import { createNativeStackNavigator,  createStackNavigator, } from '@react-navigation/stack';
+import SignupForm from '../../Pages/SignUp';
+const AuthStack = createStackNavigator();
+export const AuthStackScreen = () => (
+  <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+    <AuthStack.Screen name="Home" component={Home} />
+    <AuthStack.Screen name="Signin" component={LoginForm} />
+    <AuthStack.Screen name="Signup" component={SignupForm} />
+   
+  </AuthStack.Navigator>
+);
+
 
 const styles = StyleSheet.create({  
     Header: {
