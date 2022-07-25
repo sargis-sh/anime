@@ -4,8 +4,11 @@ const Tab = createMaterialBottomTabNavigator();
 import Home from '../../Pages/Home';
 import Profile from '../../Pages/Profile';
 import Discover from '../../Pages/Discover';
+import MyList from '../../Pages/MyList';
 import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
+import LoginForm from '../../Pages/SignIn';
+import SignupForm from '../../Pages/SignUp';
 
 export default function MyTabs() {
   return (
@@ -25,6 +28,18 @@ export default function MyTabs() {
           ),
         }}
       />
+       <Tab.Screen
+        name="MyList"
+        component={MyList}
+        options={{
+          tabBarLabel: 'MyList',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="heart" color={color} size={26} />
+          ),
+        }}
+      />
+       {/* <Tab.Screen name="Login" component={LoginForm} />
+       <Tab.Screen name="Signup" component={SignupForm} /> */}
       <Tab.Screen
         name="Discover"
         component={Discover}

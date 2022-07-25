@@ -4,17 +4,17 @@ import List from '../Components/Post/List'
 
 var rows = [];
 
-const Home = () => {
+const MyList = () => {
 //   var count = prompt("Enter the post count!")
 
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 4; index++) {
     rows.push(<Post searchText="true" num={index} key={index}/>);
   }
 
   return (
     <View style={styles.Home}>
       <ScrollView>
-      <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>Most Popular</Text>
+      <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
 
         <View style={styles.View}>
           {rows}
@@ -38,12 +38,13 @@ const styles = StyleSheet.create({
     },
     tytle:{
       margin:20,
+      fontFamily: 'Roboto',
       textAlign: 'center',
       fontWeight: 'bold',
-      fontFamily: 'Roboto',
+     
       fontSize: 40,
       color: '#FFFAF0'
     }
 });
 
-export default Home;
+export default MyList;

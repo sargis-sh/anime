@@ -1,30 +1,49 @@
-import LoginForm from '../../Pages/SignIn';
+import React, {useContext} from 'react';
+import {Text, View} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../../Pages/Home';
-import MyTabs from '../Tab/Tab';
-import { View, Text, StyleSheet} from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator,  createStackNavigator, } from '@react-navigation/stack';
+import LoginForm from '../../Pages/SignIn';
+import Header from './Header';
 import SignupForm from '../../Pages/SignUp';
-const AuthStack = createStackNavigator();
-export const AuthStackScreen = () => (
-  <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-    <AuthStack.Screen name="Home" component={Home} />
-    <AuthStack.Screen name="Signin" component={LoginForm} />
-    <AuthStack.Screen name="Signup" component={SignupForm} />
-   
-  </AuthStack.Navigator>
-);
 
 
-const styles = StyleSheet.create({  
-    Header: {
-      padding: 100,
-      height:300,
-      width: "100%",
-      flexDirection: "row",
-      flexWrap: "wrap",
-      height: "auto",
-      backgroundColor: "#0d0c39",
-      justifyContent: "space-around",
-      alignItems: "center",
-    }});
+
+const Stack = createNativeStackNavigator();
+
+const Navigation = () => {
+  const {userInfo, splashLoading} = useContext(AuthContext);
+
+  return (
+    <NavigationContainer>
+       <Stack.Navigator>
+        {splashLoading ? (
+          <Stack.Screen
+            name="Splash Screen"
+            component={SplashScreen}
+            options={{headerShown: false}}
+          />
+        ) : userInfo.access_token ? (
+          <Stack.Screen name="Home" component={HomeScreen} />
+        ) : (
+          <>
+      
+            <Stack.Screen
+              name="Login"
+              component={LoginForm}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Register"
+              component={SignupForm}
+              options={{headerShown: false}}
+            />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Navigation;

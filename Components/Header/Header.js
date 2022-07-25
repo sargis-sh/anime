@@ -8,7 +8,7 @@ import SignupForm from "../../Pages/SignUp";
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import MyStack from "./Nav";
+import Routers from "./Nav";
 
 export default function Header({navigation}) {
   return (
@@ -17,10 +17,10 @@ export default function Header({navigation}) {
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button} onPress={() => this.props.navigation.navigate('SignupForm')}>
+        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('SignupForm')}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('LoginForm')}>
+        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('Login')}>
           <Text style={styles.ButtonText}>Sign Up</Text>
         </TouchableHighlight> 
       </View>

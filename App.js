@@ -1,13 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import MyTabs from './Components/Tab/Tab';
-import { AuthStackScreen } from './Components/Header/Nav';
+
 import Header from './Components/Header/Header';
 import  React, { Component }  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginForm from "./Pages/SignIn";
-const Stack = createNativeStackNavigator();
+import SignupForm from './Pages/SignUp';
+import Routers from './Components/Header/Nav';
+
 
 
 class App extends Component {
@@ -15,7 +17,7 @@ class App extends Component {
     return (
           <NavigationContainer className = "Container">
             <Header></Header>
-          
+          {/* <Routers /> */}
             <MyTabs />
           </NavigationContainer>
          );
