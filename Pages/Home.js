@@ -1,9 +1,8 @@
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { objects } from '../Components/Post/Post';
+import List from '../Components/Post/List'
 // import './Home.css';
 var rows = [];
-
 const Home = () => {
 //   var count = prompt("Enter the post count!")
 //   parseFloat(count);
@@ -16,7 +15,7 @@ const Home = () => {
     <View style={styles.Home}>
       <ScrollView>
         <View style={styles.View}>
-            {rows}
+          {rows}
         </View> 
       </ScrollView>
     </View>
@@ -25,13 +24,13 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     Home: {
-      flex: 1
+      flex: 1,
+      backgroundColor: "#282c34",
     },
     View: {
       width: "100%",
       alignItems:'center',
       justifyContent:'center',
-      backgroundColor: "#282c34",
       flexDirection: 'row',
       flexWrap: 'wrap'
     }

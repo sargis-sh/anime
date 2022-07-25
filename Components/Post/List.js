@@ -36,11 +36,11 @@ const Item = ({ name, image, epCount, ageRating, japTitle }) => (
 const List = ({ searchPhrase, data }) => {
   const renderItem = ({ item }) => {
     // when no input, show all
-    if (searchPhrase === "") {
-      return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
-    }
+    // if (searchPhrase == true) {
+    //   return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
+    // }
     // filter of the name
-    if (item.attributes.canonicalTitle.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+    if (searchPhrase != "" && item.attributes.canonicalTitle.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
       return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
     }
   };
@@ -59,10 +59,6 @@ const List = ({ searchPhrase, data }) => {
 export default List;
 
 const styles = StyleSheet.create({
-    Container: {
-        width: 325,
-        height: 350,
-    },
     AnimeImage: {
         width: 100,
         borderRadius: 8,
@@ -71,9 +67,6 @@ const styles = StyleSheet.create({
     },
     MovieCard: {
         backgroundColor: "#000",
-        flexDirection:'row',
-        justifyContent: "center",
-        alignItems: "center",
         position: "relative",
         width: 275,
         height: 350,

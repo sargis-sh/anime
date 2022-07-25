@@ -76,11 +76,13 @@ const Discover = () => {
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
           />
-
-          <List style={styles.View}
+          <View style={styles.View}>
+            <List style={styles.View}
             searchPhrase={searchPhrase}
             data={fakeData}
           />
+          </View>
+          
         </View>
       </ScrollView>
     </View>
@@ -92,13 +94,11 @@ export default Discover;
 const styles = StyleSheet.create({
     root: {
       flex: 1,
+      backgroundColor: "#282c34"
     },
     View: {
       width: "100%",
       alignItems:'center',
       justifyContent:'center',
-      backgroundColor: "#282c34",
-      flexDirection: 'row',
-      flexWrap: 'wrap'
     }
   });

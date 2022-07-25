@@ -8,7 +8,6 @@ import {
     TouchableOpacity,
     ImageBackground
   } from 'react-native';
-import Header from '../Components/Header/Header';
 import Post from '../Components/Post/Post'
 
 const profile = {
@@ -26,7 +25,6 @@ const Profile = () => {
     return(
         
         <ScrollView>
-             <Header></Header>
              <View style={styles.container}>
           <ImageBackground style={styles.header} source={require('../assets/Eren.jpg')}></ImageBackground>
           <Image style={styles.avatar} source={require('../assets/Eren-Yeager.jpg')}/>
