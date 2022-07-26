@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     marginBottom: 30,
     marginTop: 16,
-    color: 'white'
+    color: '#de5523'
   },
   error: {
     fontSize: 16,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     width: 120,
     marginTop: 8,
     borderRadius: 10,
-    backgroundColor: '#c01c00',
+    backgroundColor: '#3b99d9',
     padding: 8,
     textAlign: 'center'
   }

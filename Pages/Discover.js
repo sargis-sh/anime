@@ -43,6 +43,7 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
+  
   SafeAreaView,
   ScrollView,
   ActivityIndicator,
@@ -51,6 +52,8 @@ import {
 import List from "../Components/Post/List";
 import SearchBar from "../Components/Post/Search";
 import json from "../Helpers/Helper";
+import Demo from "../Components/Header/Dropdown";
+import SelectDropdown from 'react-native-select-dropdown'
 
 const Discover = () => {
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -69,13 +72,17 @@ const Discover = () => {
   return (
     <View style={styles.root}>
       <ScrollView>
+      <Demo></Demo>
         <View style={styles.View}>
+      
           <Text style={styles.title}>Search For Anime</Text>
-
+        
           <SearchBar
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
+           
           />
+           
           <View style={styles.View}>
             <List style={styles.View}
             searchPhrase={searchPhrase}
@@ -84,6 +91,7 @@ const Discover = () => {
           </View>
           
         </View>
+     
       </ScrollView>
     </View>
   );
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
     title: {
       fontFamily: 'Roboto',
       fontSize: 45,
-      color: "#fff",
-      margin: 20
+      color: "#F58216",
+      marginTop:103
     }
   });

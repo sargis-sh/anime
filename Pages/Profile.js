@@ -69,7 +69,7 @@ const Profile = () => {
         justifyContent: "center",
         alignItems: "center",
          position: "relative",
-         margin: 24
+         margin: 11
       },
       avatar: {
         width: 130,
@@ -126,7 +126,7 @@ const Profile = () => {
         marginBottom:20,
         width:250,
         borderRadius:30,
-        backgroundColor: "#9400D3",
+        backgroundColor: "#F58216",
       },
 });
 
