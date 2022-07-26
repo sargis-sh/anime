@@ -25,11 +25,12 @@ export default function MyTabs() {
       labelStyle={{ fontSize: 77 }}
     >
       <Tab.Screen
+      
         name=" "
         component={SignIn}
         options={{
           tabBarIcon: ({ color }) => (
-            <TouchableHighlight style={styles.Button}>
+            <TouchableHighlight  style={styles.Button}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
           ),
@@ -108,8 +109,11 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#F58216",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+
+    bottom: 20
   },
+
   View: {
     height: "100%"
   },
