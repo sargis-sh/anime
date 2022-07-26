@@ -1,6 +1,7 @@
 // import "./Header.css";
-import {  Button, StyleSheet, View, Text } from "react-native";
+import {  Button, StyleSheet, View, Text} from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useLinkTo } from '@react-navigation/native';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
 import LoginForm from '../../Pages/SignIn';
@@ -11,18 +12,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routers from "./Nav";
 
 export default function Header({navigation}) {
+  const linkTo = useLinkTo();
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('SignupForm')}>
+        <TouchableHighlight style={styles.Button}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button} onPress={() => navigation.push('Login')}>
+        <Button title="Go to About" 
+onPress={() =>  this.props.navigation.navigate('../../Pages/Discover')}
+/>
+        <Button style={styles.Button} onPress={() => linkTo('/../../SignIn')}>
           <Text style={styles.ButtonText}>Sign Up</Text>
-        </TouchableHighlight> 
+        </Button> 
       </View>
     </View>
   );

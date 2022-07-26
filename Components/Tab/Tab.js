@@ -5,19 +5,47 @@ import Home from '../../Pages/Home';
 import Profile from '../../Pages/Profile';
 import Discover from '../../Pages/Discover';
 import MyList from '../../Pages/MyList';
-import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
-import LoginForm from '../../Pages/SignIn';
 import SignupForm from '../../Pages/SignUp';
+import {NavigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import SignIn from '../../Pages/SignIn';
+import SignUp from '../../Pages/SignUp';
+const Stack = createStackNavigator();
+import { TouchableHighlight } from "react-native";
+import {  Button, StyleSheet, View, Text } from "react-native";
 
 export default function MyTabs() {
   return (
-    <Tab.Navigator 
+
+    <Tab.Navigator independent={true}
       initialRouteName="Home"
       activeColor="rgba(255, 255, 255, 0.9)"
       barStyle={{ backgroundColor: '#0d0c39' }}
       labelStyle={{ fontSize: 77 }}
     >
+      <Tab.Screen
+        name=" "
+        component={SignIn}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TouchableHighlight style={styles.Button}>
+          <Text style={styles.ButtonText}>Sign In</Text>
+        </TouchableHighlight>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="  "
+        component={SignUp}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TouchableHighlight style={styles.Button}>
+          <Text style={styles.ButtonText}>Sign Up</Text>
+        </TouchableHighlight>
+          ),
+        }}
+      />
       <Tab.Screen
         name="Home"
         component={Home}
@@ -62,10 +90,29 @@ export default function MyTabs() {
         }}
       />
     </Tab.Navigator>
+
   );
 }
 
 const styles = StyleSheet.create({
+  ButtonText:{
+    fontSize: 17,
+    color: "#272727",
+  },
+  Button: {
+    marginRight: 28.3,
+    marginLeft: 28.3,
+    height: 40,
+    width:100,
+    borderRadius: 6,
+    padding: 10,
+    backgroundColor: "#F58216",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  View: {
+    height: "100%"
+  },
   Tabs: {
     width: "100%",
     backgroundColor: "#282c34"

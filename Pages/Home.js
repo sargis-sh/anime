@@ -1,6 +1,7 @@
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import List from '../Components/Post/List'
+import {Button} from "react-native";
 
 var rows = [];
 
@@ -15,7 +16,6 @@ const Home = () => {
     <View style={styles.Home}>
       <ScrollView>
       <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>Most Popular</Text>
-
         <View style={styles.View}>
           {rows}
         </View> 

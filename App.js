@@ -1,6 +1,7 @@
 
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
 import MyTabs from './Components/Tab/Tab';
+import UpperTab from './Components/Tab/UpperTab';
 
 import Header from './Components/Header/Header';
 import  React, { Component }  from 'react';
@@ -12,24 +13,16 @@ import Routers from './Components/Header/Nav';
 
 
 
-class App extends Component {
-  render() {
+function App() {
     return (
-          <NavigationContainer className = "Container">
-            <Header></Header>
-          {/* <Routers /> */}
+<NavigationContainer className = "Container">
+  <Header/>
             <MyTabs />
           </NavigationContainer>
-         );
-  }
+    )
 }
+
 export default App;
-
-
-
-
-
-
 
 
 // export default function App() {
