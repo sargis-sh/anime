@@ -7,31 +7,21 @@ import React, {useState} from "react";
 
 var rows = [];
 
-const Home = (pageState) => {
-  pageState = "Home";
+const Home = () => {
 //   var count = prompt("Enter the post count!")
-console.log(pageState)
   for (let index = 0; index < 10; index++) {
     rows.push(<Post searchText="true" num={index} key={index}/>);
   }
-  if(pageState=="Home"){
   return (
     <View style={styles.Home}>
       <ScrollView>
         <View style={styles.View}>
-        <TouchableHighlight style={styles.Button}>
-          <Text style={styles.ButtonText}>Sign In</Text>
-        </TouchableHighlight>
           {rows}
         </View> 
       </ScrollView>
     </View>
   );
-  }else if(pageState=="SignIn"){
-    return(
-    <SignIn/>
-    );
-  }
+
 };
 
 const styles = StyleSheet.create({

@@ -4,53 +4,51 @@ import MyTabs from './Components/Tab/Tab';
 import UpperTab from './Components/Tab/UpperTab';
 
 import Header from './Components/Header/Header';
-import  React, { Component }  from 'react';
+import  React, { Component, useEffect, useState }  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginForm from "./Pages/SignIn";
-import SignupForm from './Pages/SignUp';
-import Routers from './Components/Header/Nav';
+import SignIn from "./Pages/SignIn";
+import SignUp from './Pages/SignUp';
 
-
-
-function App() {
+function App(pState){
+  // if(pState.exp.errorRecovery==null){
+  //   pState="Home";
+  // }
+  // console.log(pState);
+  // setState(pState)
+  useEffect(()=>{
+    console.log("jkbwdhkw")
+  }, [pState])
+  console.log(pState)
+  pState = "Home";
+  
+  if(pState=="SignIn"){
     return (
-<NavigationContainer className = "Container">
-  <Header/>
+          <NavigationContainer className = "Container">
+            <Text>{pState}</Text>
+            <Header/>
+            <SignIn />
+          </NavigationContainer>
+    )
+  }
+  else if(pState=="SignIn"){
+    return (
+          <NavigationContainer className = "Container">
+            <Text>{pState}</Text>
+            <Header/>
+            <SignUp />
+          </NavigationContainer>
+    )
+  }
+  else{
+    return (
+          <NavigationContainer className = "Container">
+            <Text>{pState}</Text>
+            <Header/>
             <MyTabs />
           </NavigationContainer>
     )
+  } 
 }
 
 export default App;
-
-
-// export default function App() {
-//   return (
-//     <NavigationContainer className = "Container">
-//       <Header></Header>
-      
-//       <MyTabs />
-//     </NavigationContainer>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   View: {
-//     backgroundColor: "#000",
-//     height: "100%",
-//     width: "100%"
-//   },
-//   SafeArea: {
-//     width: "100%",
-//     // backgroundColor: "rgb(0, 122, 255)",
-//   },
-//   App: {
-//     flex: 0.9,
-//   },
-//   // Header: {
-//   //   color: "#000",
-//   //   fontWeight: "900",
-//   //   fontSize: 20,
-//   // },
-// });

@@ -25,29 +25,6 @@ export default function MyTabs() {
       labelStyle={{ fontSize: 77 }}
     >
       <Tab.Screen
-      
-        name=" "
-        component={SignIn}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <TouchableHighlight  style={styles.Button}>
-          <Text style={styles.ButtonText}>Sign In</Text>
-        </TouchableHighlight>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="  "
-        component={SignUp}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <TouchableHighlight style={styles.Button}>
-          <Text style={styles.ButtonText}>Sign Up</Text>
-        </TouchableHighlight>
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Home"
         component={Home}
         options={{
@@ -61,14 +38,12 @@ export default function MyTabs() {
         name="MyList"
         component={MyList}
         options={{
-          tabBarLabel: 'MyList',
+          tabBarLabel: 'My List',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="heart" color={color} size={26} />
           ),
         }}
       />
-       {/* <Tab.Screen name="Login" component={LoginForm} />
-       <Tab.Screen name="Signup" component={SignupForm} /> */}
       <Tab.Screen
         name="Discover"
         component={Discover}
