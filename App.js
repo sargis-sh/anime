@@ -1,5 +1,9 @@
+
 import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
 import MyTabs from './Components/Tab/Tab';
+import UpperTab from './Components/Tab/UpperTab';
+
+
 import Header from './Components/Header/Header';
 import  React, { Component, useEffect, useState }  from 'react';
 import { NavigationContainer } from '@react-navigation/native';
