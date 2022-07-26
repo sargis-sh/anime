@@ -100,5 +100,12 @@ const styles = StyleSheet.create({
       backgroundColor: "#282c34",
       flexDirection: 'row',
       flexWrap: 'wrap'
-    }
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: "bold",
+      margin: 12,
+      fontStyle: "italic",
+      color: "#fff"
+    },
   });
