@@ -10,7 +10,7 @@ const MyComponent = () => {
 
   return (
     <View style ={styles.search}>
-    <Searchbar
+    <Searchbar style={styles.Bar}
       placeholder="Search"
       onChangeText={onChangeSearch}
       value={searchQuery}
@@ -20,9 +20,11 @@ const MyComponent = () => {
 };
 
 const styles = StyleSheet.create({  
- 
-    search: {
-        width: "70%",
+    Bar: {
+      width: 1009
+    },
+    search: { 
+      width: 100,
         margin:10, 
         backgroundColor: 'white',
         borderColor: '#ffff'

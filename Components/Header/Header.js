@@ -1,22 +1,31 @@
 // import "./Header.css";
-import {  Button, StyleSheet, View, Text } from "react-native";
+import {  Button, StyleSheet, View, Text} from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useLinkTo } from '@react-navigation/native';
 // import { Icon } from "react-native-vector-icons/Icon";
 import { TouchableHighlight } from "react-native";
+import LoginForm from '../../Pages/SignIn';
+import SignupForm from "../../Pages/SignUp";
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Routers from "./Nav";
 
 export default function Header() {
+  const[pageState, setPageState] = useState("Home");
+  const linkTo = useLinkTo();
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button}>
+        <TouchableHighlight style={styles.Button} onPress={setPageState("SignIn")}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button}>
-          <Text style={styles.ButtonText}>Sign Up</Text>
-        </TouchableHighlight> 
+        <TouchableHighlight style={styles.Button} onPress={setPageState("SignUp")}>
+          <Text style={styles.ButtonText}>Sign In</Text>
+        </TouchableHighlight>
       </View>
     </View>
   );

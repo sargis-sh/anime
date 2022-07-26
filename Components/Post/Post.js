@@ -7,7 +7,6 @@ import './Helper.js';
 import json from '../../Helpers/Helper.js';
 // import Skeleton from '@mui/material/Skeleton';
 // import Stack from '@mui/material/Stack';
-export const objects = [];
 function Post(num, searchText) {
     // searchText = "true";
     const [text, setText] = useState();
@@ -33,7 +32,6 @@ function Post(num, searchText) {
             setAnimeCount(postResult.episodeCount);
             setAnimeRating(postResult.ageRatingGuide);
             setAnimeJapTitle(postResult.titles.ja_jp);
-            objects.push({animeObjectName: postResult.canonicalTitle});
         //     setPostTitle(postResult);
         //     setPostAuthor(postResult[num.num].title);
         //     setPostBody(postResult[num.num].body);

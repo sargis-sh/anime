@@ -1,37 +1,27 @@
 import Post from '../Components/Post/Post';
-import { StyleSheet, Text, View, ScrollView, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import List from '../Components/Post/List'
-import SignIn from './SignIn';
-import SignupForm from "./SignUp";
-import React, {useState} from "react";
 
 var rows = [];
 
-const Home = (pageState) => {
-  pageState = "Home";
+const MyList = () => {
 //   var count = prompt("Enter the post count!")
-console.log(pageState)
-  for (let index = 0; index < 10; index++) {
+
+  for (let index = 0; index < 4; index++) {
     rows.push(<Post searchText="true" num={index} key={index}/>);
   }
-  if(pageState=="Home"){
+
   return (
     <View style={styles.Home}>
       <ScrollView>
+      <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
+
         <View style={styles.View}>
-        <TouchableHighlight style={styles.Button}>
-          <Text style={styles.ButtonText}>Sign In</Text>
-        </TouchableHighlight>
           {rows}
         </View> 
       </ScrollView>
     </View>
   );
-  }else if(pageState=="SignIn"){
-    return(
-    <SignIn/>
-    );
-  }
 };
 
 const styles = StyleSheet.create({
@@ -48,12 +38,13 @@ const styles = StyleSheet.create({
     },
     tytle:{
       margin:20,
+      fontFamily: 'Roboto',
       textAlign: 'center',
       fontWeight: 'bold',
-      fontFamily: 'Roboto',
+     
       fontSize: 40,
       color: '#FFFAF0'
     }
 });
 
-export default Home;
+export default MyList;
