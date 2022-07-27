@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Picker, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import {Picker} from "@react-native-picker/picker"
 
 export default class CategoryScreen extends Component {
   state = {
@@ -50,6 +51,7 @@ export default class CategoryScreen extends Component {
                 label={item.itemName}
                 value={item.itemName}
                 index={index}
+                key={index}
               />
             ))}
           </Picker>
@@ -61,29 +63,30 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   viewStyle: {
-    margin:10,
+    marginTop: 30,
+    margin: 10,
     flex: 1,
     alignSelf: "center",
     flexDirection: "row",
     width: "92%",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center"
   },
   itemStyle: {
     fontSize: 10,
-    fontFamily: "Roboto-Regular",
     color: "#F58216"
   },
   pickerStyle: {
-    width: "100%",
+    backgroundColor: "#fff",
+    padding: 10,
+    borderRadius: 8,
+    width: 200,
     height: 40,
     color: "#F58216",
     fontSize: 14,
-    fontFamily: "Roboto-Regular"
   },
   textStyle: {
     fontSize: 24,
-    fontFamily: "Roboto-Regular",
     color:'white'
-  }
+  },
 });

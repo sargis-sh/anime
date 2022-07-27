@@ -60,8 +60,8 @@ const Profile = () => {
         flexDirection:'row',
       },
       hero:{
-        width: 130,
-        height: 130,
+        width: 100,
+        height: 100,
         borderRadius: 63,
         borderWidth: 4,
         borderColor: "white",

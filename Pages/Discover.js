@@ -43,7 +43,6 @@ import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
-  
   SafeAreaView,
   ScrollView,
   ActivityIndicator,
@@ -72,7 +71,7 @@ const Discover = () => {
   return (
     <View style={styles.root}>
       <ScrollView>
-      <Demo></Demo>
+      <Demo style={styles.Demo}></Demo>
         <View style={styles.View}>
       
           <Text style={styles.title}>Search For Anime</Text>
@@ -113,6 +112,6 @@ const styles = StyleSheet.create({
       fontFamily: 'Roboto',
       fontSize: 45,
       color: "#F58216",
-      marginTop:103
+      marginTop: 150
     }
   });

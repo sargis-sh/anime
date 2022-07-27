@@ -38,14 +38,12 @@ import { Feather, Entypo } from "@expo/vector-icons";
 const SearchBar = ({searchPhrase, setSearchPhrase}) => {
   return (
     <View style={styles.container}>
-      <View>
         <TextInput
           style={styles.input}
           placeholder="Search"
           value={searchPhrase}
           onChangeText={setSearchPhrase}
         />
-      </View>
     </View>
   );
 };
@@ -58,8 +56,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    width: "100%",
-
   },
   input: {
     padding: 10,
@@ -69,6 +65,5 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     fontSize: 20,
-    width: "100%",
   },
 });

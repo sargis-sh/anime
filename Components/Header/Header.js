@@ -13,15 +13,9 @@ import App from "../../App";
 import Home from "../../Pages/Home";
 
 export default function Header() {
-  const[pageState, setPageState] = useState("Home");
-  useEffect(()=>{
-    
-    
-  }, [pageState]);
+  const[pageState, setPageState] = "Home";
   const handleClick = () =>{
-    setPageState("SignUp");
-    console.log(pageState);
-    return <App pState={pageState}/>;
+    setPageState("SignIn");
   }
   return (
     <View style={styles.Header}>

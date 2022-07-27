@@ -19,13 +19,18 @@ function App(){
   const handleClickSignIn = () =>{
     setPageState("SignIn");
   }
+  const goHome = () =>{
+    setPageState("Home");
+  }
     console.log(pageState);
     if(pageState=="SignIn"){
       return (
             <NavigationContainer className = "Container">
               <View style={styles.Header}>
         <View style={styles.ButtonContainer}>
-          <Text style={styles.Title}>📙AnimeLibrary</Text>
+          <TouchableHighlight onPress={goHome}>
+              <Text style={styles.Title}>📙AnimeLibrary</Text>
+          </TouchableHighlight>
         </View>
         <View style={styles.ButtonContainer}>
           <TouchableHighlight style={styles.Button} onPress={handleClickSignUp}>
@@ -45,7 +50,9 @@ function App(){
             <NavigationContainer className = "Container">
               <View style={styles.Header}>
         <View style={styles.ButtonContainer}>
-          <Text style={styles.Title}>📙AnimeLibrary</Text>
+            <TouchableHighlight onPress={goHome}>
+              <Text style={styles.Title}>📙AnimeLibrary</Text>
+            </TouchableHighlight>
         </View>
         <View style={styles.ButtonContainer}>
           <TouchableHighlight style={styles.Button} onPress={handleClickSignUp}>
@@ -86,7 +93,8 @@ function App(){
 
 const styles = StyleSheet.create({  
   Header: {
-    // padding: 20,
+    padding: 20,
+    paddingTop: 40,
     width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -96,7 +104,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ButtonContainer: {
-    margin: 20,
+    margin: 10,
     flexDirection: "row",
     // height: 100,
     alignItems: "center",
@@ -117,7 +125,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   Title: {
-    fontSize: 40,
+    fontSize: 30,
     color: "whitesmoke",
     textAlign: "left"
   }
