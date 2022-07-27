@@ -15,19 +15,24 @@ import Home from "../../Pages/Home";
 export default function Header() {
   const[pageState, setPageState] = useState("Home");
   useEffect(()=>{
-    console.log(pageState);
-    console.log(<App pState={pageState}/>)
+    
+    
   }, [pageState]);
+  const handleClick = () =>{
+    setPageState("SignUp");
+    console.log(pageState);
+    return <App pState={pageState}/>;
+  }
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
       </View>
       <View style={styles.ButtonContainer}>
-        <TouchableHighlight style={styles.Button} onPress={()=>setPageState("SignIn")}>
+        <TouchableHighlight style={styles.Button} onPress={handleClick}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
-        <TouchableHighlight style={styles.Button} onPress={()=>setPageState("SignUp")}>
+        <TouchableHighlight style={styles.Button} onPress={handleClick}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
       </View>
