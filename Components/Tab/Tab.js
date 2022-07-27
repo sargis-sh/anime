@@ -11,22 +11,22 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SignIn from '../../Pages/SignIn';
 import SignUp from '../../Pages/SignUp';
-const Stack = createStackNavigator();
 import { TouchableHighlight } from "react-native";
 import {  Button, StyleSheet, View, Text } from "react-native";
+import HomeStack from '../../Pages/Homestack';
 
 export default function MyTabs() {
   return (
 
     <Tab.Navigator independent={true}
-      initialRouteName="Home"
+      initialRouteName="HomeStack"
       activeColor="rgba(255, 255, 255, 0.9)"
       barStyle={{ backgroundColor: '#0d0c39' }}
       labelStyle={{ fontSize: 77 }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeStack"
+        component={HomeStack}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
@@ -64,6 +64,17 @@ export default function MyTabs() {
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
+      />
+      <Tab.Screen
+        name="SignIn"
+        component={SignIn}
+        options={{
+          tabBarVisible: false
+       }}
+      />
+      <Tab.Screen
+        name="SignUp"
+        component={SignUp}
       />
     </Tab.Navigator>
 

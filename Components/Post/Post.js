@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import * as RootNavigation from '../Tab/RootNavigation';
 
 // import './Post.css';
 import './Helper.js';
@@ -16,6 +16,7 @@ function Post(num, searchText) {
     const [animeCount, setAnimeCount] = useState();
     const [animeRating, setAnimeRating] = useState();
     const [animeJapTitle, setAnimeJapTitle] = useState();
+    const [animeDescription, setAnimeDescription] = useState();
     // const [animeImage, setAnimeImage] = useState();
     // setText(searchText);
     // console.log(searchText.searchText)
@@ -32,6 +33,7 @@ function Post(num, searchText) {
             setAnimeCount(postResult.episodeCount);
             setAnimeRating(postResult.ageRatingGuide);
             setAnimeJapTitle(postResult.titles.ja_jp);
+            setAnimeDescription(postResult.description);
         //     setPostTitle(postResult);
         //     setPostAuthor(postResult[num.num].title);
         //     setPostBody(postResult[num.num].body);
@@ -71,7 +73,11 @@ function Post(num, searchText) {
   <View style={styles.InfoSection}>
     <View style={styles.MovieHeader}>
       <Image style={styles.AnimeImage} source={{uri : animeImage}}/>
-      <Text style={styles.Header1}>{animeName}</Text>
+      <TouchableHighlight style={styles.Button} onPress={() => 
+RootNavigation.navigate('SinglePage', { animeNameValue: {animeName}, animeImageValue: {animeImage}, animeDescriptionValue: {animeDescription}, animeJapTitleValue: {animeJapTitle}, animeRatingValue: {animeRating}, animeCountValue: {animeCount}})
+}>
+          <Text style={styles.Header1}>{animeName}</Text>
+        </TouchableHighlight>
       <Text style={styles.Header4}>{animeJapTitle}</Text>
     </View>
     <View>

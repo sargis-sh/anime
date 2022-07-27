@@ -8,7 +8,7 @@ import Slider from '../Components/Header/ImageSlider';
 
 var rows = [];
 
-const Home = () => {
+const Home = ({navigation}) => {
 //   var count = prompt("Enter the post count!")
   for (let index = 0; index < 10; index++) {
     rows.push(<Post searchText="true" num={index} key={index}/>);
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       flexWrap: 'wrap'
     },
-    tytle:{
+    title:{
       margin:20,
       textAlign: 'center',
       fontWeight: 'bold',
