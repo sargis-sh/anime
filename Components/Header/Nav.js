@@ -4,7 +4,7 @@ import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../../Pages/Home';
-import LoginForm from '../../Pages/SignIn';
+import SigninForm from '../../Pages/SignIn';
 import Header from './Header';
 import SignupForm from '../../Pages/SignUp';
 
@@ -31,7 +31,7 @@ const Navigation = () => {
       
             <Stack.Screen
               name="Login"
-              component={LoginForm}
+              component={SigninForm}
               options={{headerShown: false}}
             />
             <Stack.Screen

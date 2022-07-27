@@ -11,24 +11,28 @@ import Routers from "./Nav";
 import React, {useEffect, useState} from "react";
 import App from "../../App";
 import Home from "../../Pages/Home";
-import * as RootNavigation from '../Tab/RootNavigation';
 
 export default function Header() {
+  const[pageState, setPageState] = "Home";
+  const handleClick = () =>{
+    setPageState("SignIn");
+  }
   return (
     <View style={styles.Header}>
       <View style={styles.ButtonContainer}>
         <Text style={styles.Title}>📙AnimeLibrary</Text>
+        
       </View>
-      <View style={styles.ButtonContainer}>
+      {/* <View style={styles.ButtonContainer}>
         <TouchableHighlight style={styles.Button} onPress={() => 
 RootNavigation.navigate('SignIn')}>
           <Text style={styles.ButtonText}>Sign In</Text>
         </TouchableHighlight>
         <TouchableHighlight style={styles.Button} onPress={() => 
 RootNavigation.navigate('SignUp')}>
-          <Text style={styles.ButtonText}>Sign In</Text>
+          <Text style={styles.ButtonText}>Sign Up</Text>
         </TouchableHighlight>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -48,6 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     // height: 100,
     alignItems: "center",
+   
   },
   ButtonText:{
     fontSize: 17,

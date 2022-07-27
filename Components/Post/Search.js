@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     flexDirection: "row",
-    width: "95%",
+    width: "80%",
     backgroundColor: "#d9dbda",
     borderRadius: 8,
     alignItems: "center",

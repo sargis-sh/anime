@@ -2,7 +2,7 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Tab = createMaterialBottomTabNavigator();
 import Home from '../../Pages/Home';
-import Profile from '../../Pages/Profile';
+import Auth from '../../Pages/Auth';
 import Discover from '../../Pages/Discover';
 import MyList from '../../Pages/MyList';
 import { Dimensions } from 'react-native';
@@ -14,6 +14,7 @@ import SignUp from '../../Pages/SignUp';
 import { TouchableHighlight } from "react-native";
 import {  Button, StyleSheet, View, Text } from "react-native";
 import HomeStack from '../../Pages/Homestack';
+import AuthStack from '../../Pages/AuthStack';
 
 export default function MyTabs() {
   return (
@@ -56,8 +57,8 @@ export default function MyTabs() {
       />
 
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="AuthStack"
+        component={AuthStack}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
@@ -65,7 +66,7 @@ export default function MyTabs() {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="SignIn"
         component={SignIn}
         options={{
@@ -75,7 +76,7 @@ export default function MyTabs() {
       <Tab.Screen
         name="SignUp"
         component={SignUp}
-      />
+      /> */}
     </Tab.Navigator>
 
   );

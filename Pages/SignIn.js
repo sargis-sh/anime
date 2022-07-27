@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LoginForm = () => {
+const SignIn = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [token, setToken] = useState(null)
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginForm;
+export default SignIn;

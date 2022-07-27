@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     search: { 
       width: 100,
-        margin:10, 
+        margin:0, 
         backgroundColor: 'white',
         borderColor: '#ffff'
     },  

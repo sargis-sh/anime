@@ -71,11 +71,12 @@ const Discover = () => {
   return (
     <View style={styles.root}>
       <ScrollView>
-      <Demo style={styles.Demo}></Demo>
-        <View style={styles.View}>
-      
-          <Text style={styles.title}>Search For Anime</Text>
+     
         
+    
+        <View style={styles.View}>
+        <Text style={styles.title}>Search For Anime</Text>
+           <Demo style={styles.Demo}></Demo>
           <SearchBar
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
@@ -112,6 +113,8 @@ const styles = StyleSheet.create({
       fontFamily: 'Roboto',
       fontSize: 45,
       color: "#F58216",
-      marginTop: 150
+    
+      alignItems:'center',
+      justifyContent:'center',
     }
   });

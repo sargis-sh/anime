@@ -34,9 +34,9 @@ export default class CategoryScreen extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        <View style={{ flex: 0.3 }}>
+        {/* <View style={{ flex: 0.3 }}>
           <Text style={styles.textStyle}>Genres</Text>
-        </View>
+        </View> */}
         <View style={{ flex: 0.7, fontSize: 14 }}>
           <Picker
             itemStyle={styles.itemStyle}
@@ -64,7 +64,7 @@ export default class CategoryScreen extends Component {
 const styles = StyleSheet.create({
   viewStyle: {
     marginTop: 30,
-    margin: 10,
+    margin: 5,
     flex: 1,
     alignSelf: "center",
     flexDirection: "row",
