@@ -1,15 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   TextInput,
   Text,
+  Button,
   TouchableOpacity,
   Image,
   ScrollView
 } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SignupForm = () => {
 
+
+
+const SignUp = () => {
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [token, setToken] = useState(null)
+
+  const onSubmit = async() => {
+      await AsyncStorage.setItem('token', username)
+      if (username === 'marina'  && password === '123456') {
+          console.log('Nice')
+          navigation.navigate('SignIn')
+      }
+  }
+
+  const tokensignup = async() => {
+      const value = await AsyncStorage.getItem('token')
+      if (value !== null) {
+          navigation.navigate('SignIn')
+          console.log('Welcome to your profile')
+      }else {
+          console.log('Sign In again')
+      }
+  }
+
+  tokensignup()
   return (
     
     <ScrollView contentContainerStyle={styles.container}>
@@ -19,22 +47,27 @@ const SignupForm = () => {
       />
       <Text style={styles.title}>Sign Up</Text>
       <TextInput
-        placeholder='Name'
+        onChangeText={(value) => setUsername(value)}
+        placeholder="Username"
         style={styles.input}
-        onChangeText={() => { }}
+       
       />
-      <TextInput
-        placeholder='Email'
+      <TextInput 
+      onChangeText={(value) => setEmail(value)}
+      placeholder="Email"
+      
         style={styles.input}
-        onChangeText={() => { }}
+        
       />
        <TextInput
+       onChangeText={(value) => setPassword(value)}
+    
         placeholder='Password'
         style={styles.input}
-        onChangeText={() => { }}
+        
       />
       <TouchableOpacity
-        onPress={() => { }}>
+        onPress={onSubmit}>
         <Text style={styles.button}>Submit</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -91,4 +124,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SignupForm;
+export default SignUp;

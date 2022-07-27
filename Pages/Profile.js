@@ -1,5 +1,8 @@
 
 import {
+  StatusBar,
+  Button,
+  
     ScrollView,
     StyleSheet,
     Text,
@@ -9,6 +12,7 @@ import {
     ImageBackground
   } from 'react-native';
 import Post from '../Components/Post/Post'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const profile = {
     id: 1,
@@ -22,10 +26,19 @@ const Profile = () => {
         if(!profile.following.includes(index+1)){
         rows.push(<Post num={index} key={index}/>)}
     }
+
+    const logout = async() => {
+      await AsyncStorage.removeItem('token')
+      navigation.navigate('SignIn')
+  }
+
     return(
         
         <ScrollView>
              <View style={styles.container}>
+             <StatusBar style="auto" />
+    
+     
           <ImageBackground style={styles.header} source={require('../assets/Eren.jpg')}></ImageBackground>
           <Image style={styles.avatar} source={require('../assets/Eren-Yeager.jpg')}/>
           <View style={styles.body}>
@@ -36,7 +49,11 @@ const Profile = () => {
               
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text>Edit Profile</Text>  
-              </TouchableOpacity>              
+              </TouchableOpacity> 
+              <TouchableOpacity style={styles.buttonContainer}
+                  onPress={logout}>
+        <Text >Log Out</Text>
+              </TouchableOpacity>
            <Text style = {styles.fav}>Favourite Characters</Text>
                 <View style ={styles.imagecontainer}>
                 <Image style={styles.hero} source={require('../assets/lilush.jpg')}/>

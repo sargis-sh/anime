@@ -1,15 +1,43 @@
-import React from 'react';
+
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   TextInput,
   Text,
+  Button,
   TouchableOpacity,
   Image,
   ScrollView
 } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginForm = () => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [token, setToken] = useState(null)
 
+  const onSubmit = async() => {
+      await AsyncStorage.setItem('token', username)
+      if (username === 'marina' && password === '123456') {
+          console.log('Nice')
+          navigation.navigate('Profile')
+      }else {
+          console.log('Try again ')
+      }
+  }
+
+  const tokenlogin = async() => {
+      const value = await AsyncStorage.getItem('token')
+      if (value !== null) {
+          navigation.navigate('Profile')
+          console.log('Welcome to your profile')
+      }else {
+          console.log('Sign In again')
+      }
+  }
+
+  tokenlogin()
   return (
     
     <ScrollView contentContainerStyle={styles.container}>
@@ -17,19 +45,20 @@ const LoginForm = () => {
         style={styles.image}
         source={require('../assets/Logo.png')}
       />
-   
-      <TextInput
-        placeholder='Name'
+     <Text style={styles.title}>Sign In</Text>
+      <TextInput  onChangeText={(value) => setUsername(value)}
+       placeholder="Username"
         style={styles.input}
-        onChangeText={() => { }}
+     
       />
-      <TextInput
-        placeholder='Password'
+      <TextInput secureTextEntry onChangeText={(value) => setPassword(value)}
+       placeholder="Password"
+      
         style={styles.input}
-        onChangeText={() => { }}
+      
       />
-      <TouchableOpacity
-        onPress={() => { }}>
+        <TouchableOpacity
+        onPress={onSubmit}>
         <Text style={styles.button}>Submit</Text>
       </TouchableOpacity>
     </ScrollView>

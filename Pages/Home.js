@@ -4,6 +4,7 @@ import List from '../Components/Post/List'
 import SignIn from './SignIn';
 import SignupForm from "./SignUp";
 import React, {useState} from "react";
+import Slider from '../Components/Header/ImageSlider';
 
 var rows = [];
 
@@ -15,6 +16,8 @@ const Home = () => {
   return (
     <View style={styles.Home}>
       <ScrollView>
+        <Slider></Slider>
+        <Text style={styles.contentText}>Top Rated</Text>
         <View style={styles.View}>
           {rows}
         </View> 
@@ -43,7 +46,15 @@ const styles = StyleSheet.create({
       fontFamily: 'Roboto',
       fontSize: 40,
       color: '#FFFAF0'
-    }
+    },
+    contentText: { 
+       margin:20,
+      fontFamily: 'Roboto',
+      textAlign: 'center',
+      fontWeight: 'bold',
+     
+      fontSize: 40,
+      color: 'white'},
 });
 
 export default Home;

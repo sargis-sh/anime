@@ -66,7 +66,7 @@ function Post(num, searchText) {
           // }else{
     return (  
     <View>
-        
+            
         <View style={styles.MovieCard} id="bright">
   <View style={styles.InfoSection}>
     <View style={styles.MovieHeader}>
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     color: "#cee4fd",
     marginLeft: 10
   },
+ 
 //   Description: {
 //     padding: 25,
 //     height: "50%",
