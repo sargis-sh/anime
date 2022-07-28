@@ -50,11 +50,9 @@ const Profile = ({route}) => {
             <View style={styles.bodyContent}>
               <Text style={styles.name}>{loggedUsername.un}</Text>
               <Text style={styles.info}>Otaku / Gamer</Text>
-              <Text style={styles.description}>I want to rebuild the world and bring piece</Text>
+              <Text style={styles.description}>I want to rebuild the world and bring a piece</Text>
               
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Edit Profile</Text>  
-              </TouchableOpacity> 
+             
               <TouchableOpacity style={styles.buttonContainer}
                   onPress={logout}>
         <Text >Log Out</Text>
@@ -108,13 +106,13 @@ const Profile = ({route}) => {
       },
       name:{
         fontSize:22,
-        color:"#FFFFFF",
+        color:"white",
         fontWeight:'600',
       },
       fav:{  
         margin:10,
         fontSize:22,
-        color:"#0000FF",
+        color:"#9ac7fa",
         fontWeight:'600',
       },
       body:{
@@ -125,11 +123,7 @@ const Profile = ({route}) => {
         alignItems: 'center',
         padding:30,
       },
-      name:{
-        fontSize:28,
-        color: "#696969",
-        fontWeight: "600"
-      },
+      
       info:{
         fontSize:16,
         color: "#b4b4b4",
@@ -137,7 +131,7 @@ const Profile = ({route}) => {
       },
       description:{
         fontSize:16,
-        color: "#696969",
+        color: "lightblue",
         marginTop:10,
         textAlign: 'center'
       },

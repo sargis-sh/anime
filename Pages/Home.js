@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
       color: '#FFFAF0'
     },
     contentText: { 
-       margin:20,
+       marginTop:50,
       fontFamily: 'Roboto',
       textAlign: 'center',
       fontWeight: 'bold',

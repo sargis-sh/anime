@@ -8,7 +8,7 @@ import { useState } from 'react';
 var myArray;
 const MyList = () => {
 
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index <8; index++) {
     rows.push(<Post page="list" num={index} key={index}/>);
   }
   return (
