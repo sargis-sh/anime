@@ -27,7 +27,6 @@ function Post(num, searchText) {
         const getData = async () => {
             let postHREF = await json.get('/anime');
             let postResult = postHREF.data.data[num.num].attributes;
-            // console.log(postResult);
             setAnimeImage(postResult.posterImage.large);
             setAnimeName(postResult.canonicalTitle);
             setAnimeCount(postResult.episodeCount);

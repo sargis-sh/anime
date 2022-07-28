@@ -12,15 +12,19 @@ import SignIn from './SignIn';
 import Auth from './Auth';
 import SignUp from './SignUp';
 const Stack = createStackNavigator();
+import * as RootNavigation from '../Components/Tab/RootNavigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const AuthStack = ({navigation}) => {
+const AuthStack = () => {
     return (
         <View style={styles.Home}>
+            
                 <Header/> 
-                <Stack.Navigator initialRoutName="SignIn">
+                <Stack.Navigator initialRoutName="Sign In or Sign Up to Continue">
                     <Stack.Screen name="Sign In or Sign Up to Continue" component={Auth} />
                     <Stack.Screen name="SignIn" component={SignIn} />
                     <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="Profile" component={Profile} />
                 </Stack.Navigator>
         </View>
     

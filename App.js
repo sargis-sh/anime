@@ -12,10 +12,16 @@ import { navigationRef } from './Components/Tab/RootNavigation';
 
 function App(){
       return (
-        <NavigationContainer ref={navigationRef}>
+        <NavigationContainer ref={navigationRef} style={styles.root}>
           <MyTabs/>
         </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    backgroundColor: "rgb(40, 44, 52)"
+  }
+});
 
 export default App;

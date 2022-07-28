@@ -52,18 +52,20 @@ export default SearchBar;
 // styles
 const styles = StyleSheet.create({
   container: {
-    margin: 15,
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
   },
   input: {
+    width: 100,
+    height: 40,
     padding: 10,
     flexDirection: "row",
-    width: "80%",
     backgroundColor: "#d9dbda",
     borderRadius: 8,
     alignItems: "center",
     fontSize: 20,
+    marginRight: 25,
+      marginLeft: 25,
   },
 });

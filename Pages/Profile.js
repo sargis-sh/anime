@@ -13,6 +13,7 @@ import {
   } from 'react-native';
 import Post from '../Components/Post/Post'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { navigationRef } from '../Components/Tab/RootNavigation';
 
 const profile = {
     id: 1,
@@ -20,7 +21,9 @@ const profile = {
     following: [2, 5, 8, 33, 58, 72, 73, 91]
 }
 
-const Profile = () => {
+const Profile = ({route}) => {
+  const { loggedUsername, loggedPassword, loggedEmail } = route.params;
+
     var rows = [];
     for (let index = 0; index <1; index++) {
         if(!profile.following.includes(index+1)){
@@ -28,13 +31,15 @@ const Profile = () => {
     }
 
     const logout = async() => {
-      await AsyncStorage.removeItem('token')
-      navigation.navigate('SignIn')
+      await AsyncStorage.removeItem('UNtoken')
+      await AsyncStorage.removeItem('EMtoken')
+      await AsyncStorage.removeItem('PASStoken')
+      navigationRef.navigate("Home")
   }
 
     return(
-        
-        <ScrollView>
+        <View style={styles.root}>
+          <ScrollView>
              <View style={styles.container}>
              <StatusBar style="auto" />
     
@@ -43,7 +48,7 @@ const Profile = () => {
           <Image style={styles.avatar} source={require('../assets/Eren-Yeager.jpg')}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>Protagonist Titan</Text>
+              <Text style={styles.name}>{loggedUsername.un}</Text>
               <Text style={styles.info}>Otaku / Gamer</Text>
               <Text style={styles.description}>I want to rebuild the world and bring piece</Text>
               
@@ -64,6 +69,8 @@ const Profile = () => {
         </View>
       </View>
         </ScrollView>
+</View>
+        
   
     )
   };
@@ -114,7 +121,7 @@ const Profile = () => {
         marginTop:40,
       },
       bodyContent: {
-        flex: 1,
+        
         alignItems: 'center',
         padding:30,
       },
@@ -145,6 +152,12 @@ const Profile = () => {
         borderRadius:30,
         backgroundColor: "#F58216",
       },
+      container: {
+        backgroundColor: "rgb(40, 44, 52)"
+      },
+      root:{
+        flex: 1,
+      }
 });
 
 

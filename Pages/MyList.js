@@ -1,7 +1,7 @@
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import List from '../Components/Post/List'
-
+import Header from "../Components/Header/Header";
 var rows = [];
 
 const MyList = () => {
@@ -13,9 +13,10 @@ const MyList = () => {
 
   return (
     <View style={styles.Home}>
+      <Header/>
       <ScrollView>
       <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
-
+      
         <View style={styles.View}>
           {rows}
         </View> 

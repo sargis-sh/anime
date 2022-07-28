@@ -38,7 +38,7 @@
 
 // export default Discover;
 
-
+import Header from "../Components/Header/Header";
 import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
@@ -70,18 +70,19 @@ const Discover = () => {
 
   return (
     <View style={styles.root}>
+      <Header/>
       <ScrollView>
-     
-        
-    
+
         <View style={styles.View}>
         <Text style={styles.title}>Search For Anime</Text>
-           <Demo style={styles.Demo}></Demo>
-          <SearchBar
+        <View style = {styles.Search}>
+          <Demo style={styles.Demo}></Demo>
+          <SearchBar style={styles.searchBar}
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
            
-          />
+          /></View>
+           
            
           <View style={styles.View}>
             <List style={styles.View}
@@ -110,11 +111,18 @@ const styles = StyleSheet.create({
       justifyContent:'center',
     },
     title: {
+      marginTop: 20,
+      marginBottom: 20,
       fontFamily: 'Roboto',
       fontSize: 45,
       color: "#F58216",
-    
       alignItems:'center',
       justifyContent:'center',
-    }
+    },
+    Search: {
+      marginBottom: 20,
+      flexDirection: "row",
+      alignItems:'center',
+      justifyContent:'center',
+    },
   });

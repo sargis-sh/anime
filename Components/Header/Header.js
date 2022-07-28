@@ -72,6 +72,5 @@ const styles = StyleSheet.create({
   Title: {
     fontSize: 40,
     color: "whitesmoke",
-    textAlign: "left"
   }
 })  

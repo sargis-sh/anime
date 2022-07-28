@@ -9,8 +9,7 @@ import {
   ScrollView
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
+import * as RootNavigation from '../Components/Tab/RootNavigation';
 
 
 const SignUp = () => {
@@ -20,24 +19,12 @@ const SignUp = () => {
   const [token, setToken] = useState(null)
 
   const onSubmit = async() => {
-      await AsyncStorage.setItem('token', username)
-      if (username === 'marina'  && password === '123456') {
-          console.log('Nice')
-          navigation.navigate('SignIn')
-      }
+      await AsyncStorage.setItem('UNtoken', username)
+      await AsyncStorage.setItem('EMtoken', email)
+      await AsyncStorage.setItem('PASStoken', password)
+      RootNavigation.navigate('SignIn')
   }
 
-  const tokensignup = async() => {
-      const value = await AsyncStorage.getItem('token')
-      if (value !== null) {
-          navigation.navigate('SignIn')
-          console.log('Welcome to your profile')
-      }else {
-          console.log('Sign In again')
-      }
-  }
-
-  tokensignup()
   return (
     
     <ScrollView contentContainerStyle={styles.container}>

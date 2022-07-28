@@ -22,7 +22,18 @@ import {
       following: [2, 5, 8, 33, 58, 72, 73, 91]
   }
   
-  const Auth = () => {
+  const Auth = ({navigation}) => {
+    const onAuth = async() => {
+      const un = await AsyncStorage.getItem('UNtoken')
+      const pass = await AsyncStorage.getItem('PASStoken')
+      const em = await AsyncStorage.getItem('EMtoken')
+      if (un != null && pass != null && em != null) {
+          RootNavigation.navigate('Profile', { loggedUsername: {un}, loggedPassword: {pass}, loggedEmail: {em}});
+      }else {
+          console.log('Try again')
+      }
+  }
+  onAuth()
       var rows = [];
       for (let index = 0; index <1; index++) {
           if(!profile.following.includes(index+1)){

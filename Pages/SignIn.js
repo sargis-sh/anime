@@ -11,31 +11,34 @@ import {
   ScrollView
 } from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as RootNavigation from '../Components/Tab/RootNavigation';
 
 const SignIn = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken] = useState(null)
+  const [email, setEmail] = useState(null)
 
   const onSubmit = async() => {
-      await AsyncStorage.setItem('token', username)
-      if (username === 'marina' && password === '123456') {
-          console.log('Nice')
-          navigation.navigate('Profile')
+      const un = await AsyncStorage.getItem('UNtoken')
+      const pass = await AsyncStorage.getItem('PASStoken')
+      const em = await AsyncStorage.getItem('EMtoken')
+      if (username === un && password === pass) {
+          RootNavigation.navigate('Profile', { loggedUsername: {un}, loggedPassword: {pass}, loggedEmail: {em}});
       }else {
-          console.log('Try again ')
+          console.log('Try again')
       }
   }
 
-  const tokenlogin = async() => {
-      const value = await AsyncStorage.getItem('token')
-      if (value !== null) {
-          navigation.navigate('Profile')
-          console.log('Welcome to your profile')
-      }else {
-          console.log('Sign In again')
-      }
-  }
+  // const tokenlogin = async() => {
+  //     const un = await AsyncStorage.getItem('UNtoken')
+  //     const pass = await AsyncStorage.getItem('PASStoken')
+  //     const em = await AsyncStorage.getItem('EMtoken')
+  //     if (un !== null && pass !== null && em !== null) {
+  //         console.log('Welcome to your profile')
+  //     }else {
+  //         console.log('Sign In again')
+  //     }
+  // }
 
   tokenlogin()
   return (

@@ -9,7 +9,6 @@ var rows = [];
 
 const SinglePage = ({ route, navigation }) => {
     const { animeNameValue, animeImageValue, animeDescriptionValue, animeRatingValue, animeCountValue } = route.params;
-    console.log(animeNameValue.animeName)
   return (
     <View style={styles.SingleView}>
       <ScrollView>
