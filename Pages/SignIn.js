@@ -39,8 +39,6 @@ const SignIn = () => {
   //         console.log('Sign In again')
   //     }
   // }
-
-  tokenlogin()
   return (
     
     <ScrollView contentContainerStyle={styles.container}>

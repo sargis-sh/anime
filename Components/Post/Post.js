@@ -1,13 +1,30 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 import * as RootNavigation from '../Tab/RootNavigation';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import './Post.css';
 import './Helper.js';
 import json from '../../Helpers/Helper.js';
 // import Skeleton from '@mui/material/Skeleton';
 // import Stack from '@mui/material/Stack';
-function Post(num, searchText) {
+let myArray = []
+const startList = async () => {
+    try {
+        let value = await AsyncStorage.getItem('user');
+        if (value != null){
+        let data = await AsyncStorage.getItem("myList");
+        myArray = JSON.parse(data);
+      }
+      else {
+        await AsyncStorage.setItem("myList", JSON.stringify(myArray));
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+}
+startList()
+function Post(num, searchText, page) {
     // searchText = "true";
     const [text, setText] = useState();
     const [isLoading, SetIsLoading] = useState(true);
@@ -17,14 +34,14 @@ function Post(num, searchText) {
     const [animeRating, setAnimeRating] = useState();
     const [animeJapTitle, setAnimeJapTitle] = useState();
     const [animeDescription, setAnimeDescription] = useState();
+    const [listArray, setListArray] = useState()
     // const [animeImage, setAnimeImage] = useState();
     // setText(searchText);
     // console.log(searchText.searchText)
-    
     useEffect(() => {
         try{
-          
         const getData = async () => {
+          
             let postHREF = await json.get('/anime');
             let postResult = postHREF.data.data[num.num].attributes;
             setAnimeImage(postResult.posterImage.large);
@@ -55,45 +72,102 @@ function Post(num, searchText) {
             // </Stack>
             <Text>Loading...</Text>
         );
-    }
-    else{
-        var divStyle = {
-            backgroundImage: 'url(' + animeImage + ')',
-          };
+    }else{
+
           // if(animeName==searchText){
           //   return(
           //     <></>
           //   );
           // }else{
-    return (  
-    <View>
-            
-        <View style={styles.MovieCard} id="bright">
-  <View style={styles.InfoSection}>
-    <View style={styles.MovieHeader}>
-      <Image style={styles.AnimeImage} source={{uri : animeImage}}/>
-      <TouchableHighlight style={styles.Button} onPress={() => 
-RootNavigation.navigate('SinglePage', { animeNameValue: {animeName}, animeImageValue: {animeImage}, animeDescriptionValue: {animeDescription}, animeJapTitleValue: {animeJapTitle}, animeRatingValue: {animeRating}, animeCountValue: {animeCount}})
-}>
-          <Text style={styles.Header1}>{animeName}</Text>
-        </TouchableHighlight>
-      <Text style={styles.Header4}>{animeJapTitle}</Text>
-    </View>
-    <View>
-        <Text style={styles.Minutes}>Episode Count: {animeCount}</Text>
-    </View>
-    <View>
-        <Text style={styles.Type}>{animeRating}</Text>
-    </View>
-  </View>
-  <View style={styles.BlurBack} className="blur_back bright_back">
+            const setInList = async () => {
+                
+                let data = await AsyncStorage.getItem("myList");
+                myArray = JSON.parse(data);
+                myArray.push(animeName);
+                
+                await AsyncStorage.setItem("myList", JSON.stringify(myArray));
+                let newData = await AsyncStorage.getItem("myList");
+                setListArray(JSON.parse(newData))
+              };
 
-  </View>
-</View>
+
+              const removeFromList = async () => {
+                let data = await AsyncStorage.getItem("myList");
+                myArray = JSON.parse(data);
+                var index = myArray.indexOf(animeName)
+                if (index !== -1) {
+                  myArray.splice(index, 1);
+                }
+                
+                await AsyncStorage.setItem("myList", JSON.stringify(myArray));
+                let newData = await AsyncStorage.getItem("myList");
+                setListArray(JSON.parse(newData))
+              };
+              
+              if(myArray != null && myArray.includes(animeName)){
+                return(
+                <View>
+              
+          <View style={styles.MovieCard} id="bright">
+    <View style={styles.InfoSection}>
+      <View style={styles.MovieHeader}>
+        <Image style={styles.AnimeImage} source={{uri : animeImage}}/>
+        <TouchableHighlight style={styles.Button} onPress={() => 
+  RootNavigation.navigate('SinglePage', { animeNameValue: {animeName}, animeImageValue: {animeImage}, animeDescriptionValue: {animeDescription}, animeJapTitleValue: {animeJapTitle}, animeRatingValue: {animeRating}, animeCountValue: {animeCount}})
+  }>
+            <Text style={styles.Header1}>{animeName}</Text>
+          </TouchableHighlight>
+        <Text style={styles.Header4}>{animeJapTitle}</Text>
+      </View>
+      <View>
+          <Text style={styles.Minutes}>Episode Count: {animeCount}</Text>
+      </View>
+      <View>
+          <Text style={styles.Type}>{animeRating}</Text>
+      </View>
+      <View>
+          <MaterialCommunityIcons style={{marginTop: 10}} onPress={removeFromList} color="white" name="heart" size={26} />
+      </View>
     </View>
-    );
-    }
-  }
+    <View style={styles.BlurBack} className="blur_back bright_back">
+  
+    </View>
+  </View>
+      </View>
+      );
+              }else{
+      return (  
+      <View>
+              
+          <View style={styles.MovieCard} id="bright">
+    <View style={styles.InfoSection}>
+      <View style={styles.MovieHeader}>
+        <Image style={styles.AnimeImage} source={{uri : animeImage}}/>
+        <TouchableHighlight style={styles.Button} onPress={() => 
+  RootNavigation.navigate('SinglePage', { animeNameValue: {animeName}, animeImageValue: {animeImage}, animeDescriptionValue: {animeDescription}, animeJapTitleValue: {animeJapTitle}, animeRatingValue: {animeRating}, animeCountValue: {animeCount}})
+  }>
+            <Text style={styles.Header1}>{animeName}</Text>
+          </TouchableHighlight>
+        <Text style={styles.Header4}>{animeJapTitle}</Text>
+      </View>
+      <View>
+          <Text style={styles.Minutes}>Episode Count: {animeCount}</Text>
+      </View>
+      <View>
+          <Text style={styles.Type}>{animeRating}</Text>
+      </View>
+      <View>
+          <MaterialCommunityIcons style={{marginTop: 10}} onPress={setInList} color="white" name="heart-outline" size={26} />
+      </View>
+    </View>
+    <View style={styles.BlurBack} className="blur_back bright_back">
+  
+    </View>
+  </View>
+      </View>
+      );
+      }}}
+
 
 const styles = StyleSheet.create({
   AnimeImage: {
@@ -109,7 +183,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "relative",
     width: 275,
-    height: 350,
+    height: 375,
     margin: 24,
     overflow: "hidden",
     borderRadius: 20,

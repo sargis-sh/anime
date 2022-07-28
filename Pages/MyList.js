@@ -3,27 +3,32 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import List from '../Components/Post/List'
 import Header from "../Components/Header/Header";
 var rows = [];
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState } from 'react';
+var myArray;
 const MyList = () => {
-//   var count = prompt("Enter the post count!")
 
-  for (let index = 0; index < 4; index++) {
-    rows.push(<Post searchText="true" num={index} key={index}/>);
+  for (let index = 0; index < 10; index++) {
+    rows.push(<Post page="list" num={index} key={index}/>);
   }
-
   return (
     <View style={styles.Home}>
       <Header/>
       <ScrollView>
-      <Text  ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
-      
+      <Text ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
         <View style={styles.View}>
           {rows}
         </View> 
       </ScrollView>
     </View>
   );
-};
+}
+
+
+  
+
+  
+
 
 const styles = StyleSheet.create({
     Home: {
