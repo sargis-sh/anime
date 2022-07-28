@@ -29,16 +29,18 @@ const SignIn = () => {
       }
   }
 
-  // const tokenlogin = async() => {
-  //     const un = await AsyncStorage.getItem('UNtoken')
-  //     const pass = await AsyncStorage.getItem('PASStoken')
-  //     const em = await AsyncStorage.getItem('EMtoken')
-  //     if (un !== null && pass !== null && em !== null) {
-  //         console.log('Welcome to your profile')
-  //     }else {
-  //         console.log('Sign In again')
-  //     }
-  // }
+  const tokenlogin = async() => {
+      const un = await AsyncStorage.getItem('UNtoken')
+      const pass = await AsyncStorage.getItem('PASStoken')
+      const em = await AsyncStorage.getItem('EMtoken')
+      if (un !== null && pass !== null && em !== null) {
+          console.log('Welcome to your profile')
+      }else {
+          console.log('Sign In again')
+      }
+  }
+
+  tokenlogin()
   return (
     
     <ScrollView contentContainerStyle={styles.container}>
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     borderRadius: 10,
     backgroundColor: '#3b99d9',
-    padding: 8,
+    padding: 9,
     textAlign: 'center'
   }
 });

@@ -63,7 +63,7 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   viewStyle: {  
-    height: 40,
+    height: 20,
     flex: 1,
     alignSelf: "center",
     flexDirection: "row",
@@ -75,14 +75,14 @@ const styles = StyleSheet.create({
     color: "#F58216"
   },
   pickerStyle: {
-    width: 100,
+    width: 150,
     backgroundColor: "#fff",
-    borderRadius: 8,
-    padding: 10,
+  
+    padding: 8,
     color: "#F58216",
     fontSize: 14,
     marginRight: 25,
-      marginLeft: 25,
+      marginLeft: 5,
   },
   textStyle: {
     fontSize: 24,
