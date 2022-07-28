@@ -20,8 +20,10 @@ const AuthStack = () => {
         <View style={styles.Home}>
             
                 <Header/> 
-                <Stack.Navigator initialRoutName="Sign In or Sign Up to Continue">
-                    <Stack.Screen name="Sign In or Sign Up to Continue" component={Auth} />
+                <Stack.Navigator screenOptions={{
+    headerShown: false
+  }} initialRoutName="Sign In or Sign Up to Continue">
+                    <Stack.Screen name="Auth" component={Auth} />
                     <Stack.Screen name="SignIn" component={SignIn} />
                     <Stack.Screen name="SignUp" component={SignUp} />
                     <Stack.Screen name="Profile" component={Profile} />

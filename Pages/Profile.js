@@ -34,7 +34,7 @@ const Profile = ({route}) => {
       await AsyncStorage.removeItem('UNtoken')
       await AsyncStorage.removeItem('EMtoken')
       await AsyncStorage.removeItem('PASStoken')
-      navigationRef.navigate("Home")
+      navigationRef.navigate("Auth")
   }
 
     return(

@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
     height: 15,
     marginTop: -25,
-    marginBottom: 10,
+ 
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',

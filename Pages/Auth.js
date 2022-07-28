@@ -90,7 +90,7 @@ RootNavigation.navigate('SignUp')}>
            
           },
           ButtonText:{
-            fontSize: 17,
+            fontSize: 15,
             color: "#272727",
           },
           Button: {

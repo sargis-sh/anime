@@ -13,7 +13,9 @@ const HomeStack = ({navigation}) => {
     return (
         <View style={styles.Home}>
                 <Header/> 
-                <Stack.Navigator initialRoutName="SinglePage">
+                <Stack.Navigator  screenOptions={{
+    headerShown: false
+  }} initialRoutName="SinglePage">
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="SinglePage" component={SinglePage} />
                 </Stack.Navigator>
