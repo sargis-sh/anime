@@ -1,25 +1,35 @@
 import Post from '../Components/Post/Post';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import List from '../Components/Post/List'
+import MyFavList from '../Components/Post/MyFavList'
 import Header from "../Components/Header/Header";
 var rows = [];
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import json from "../Helpers/Helper";
+
+
 var myArray;
 const MyList = () => {
+  const [fakeData, setFakeData] = useState();
+  useEffect(() => {
+    const getData = async () => {
+        let postHREF = await json.get('/anime');
+        let postResult = postHREF.data.data;
+      setFakeData(postResult);
+    };
+    getData();
+  }, []);
 
-  for (let index = 0; index <8; index++) {
-    rows.push(<Post page="list" num={index} key={index}/>);
-  }
+  console.log(fakeData)
   return (
     <View style={styles.Home}>
       <Header/>
-      <ScrollView>
-      <Text ellipsizeMode='tail' numberOfLines={2}  style= {styles.tytle}>My List</Text>
-        <View style={styles.View}>
-          {rows}
-        </View> 
-      </ScrollView>
+       <Text style={styles.tytle}>My List</Text>
+      <View style={styles.View}>
+            <MyFavList style={styles.View}
+            data={fakeData}
+          />
+          </View>
     </View>
   );
 }

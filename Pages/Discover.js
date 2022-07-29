@@ -71,7 +71,6 @@ const Discover = () => {
   return (
     <View style={styles.root}>
       <Header/>
-      <ScrollView>
 
         <View style={styles.View}>
         <Text style={styles.title}>Search For Anime</Text>
@@ -92,8 +91,6 @@ const Discover = () => {
           </View>
           
         </View>
-     
-      </ScrollView>
     </View>
   );
 };

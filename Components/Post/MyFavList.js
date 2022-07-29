@@ -9,7 +9,11 @@ import {
   Image,
   ScrollView
 } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState, useEffect } from "react";
 
+var myArray = [];
+import Post from './Post';
 // definition of the Item, which will be rendered in the FlatList
 const Item = ({ name, image, epCount, ageRating, japTitle }) => (
         <View style={styles.MovieCard} id="bright">
@@ -33,20 +37,38 @@ const Item = ({ name, image, epCount, ageRating, japTitle }) => (
 );
 
 // the filter
-const List = ({ searchPhrase, data }) => {
+const MyFavList = ({  data }) => {
+    const[myFavListArray, setMyFavListArray] = useState();
+    
   const renderItem = ({ item }) => {
+      
+    const startList = async () => {
+            
+            let value = await AsyncStorage.getItem('myList');
+            if (value != null){
+            let asyncdata = await AsyncStorage.getItem("myList");
+            myArray = JSON.parse(asyncdata);
+            }
+            if (myArray.includes(item.attributes.canonicalTitle)) {
+                console.log(item.attributes.canonicalTitle)
+        return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
+      } 
+
+    
+    
     // when no input, show all
     // if (searchPhrase == true) {
     //   return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
     // }
     // filter of the name
-    if (searchPhrase != "" && item.attributes.canonicalTitle.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
-      return <Item name={item.attributes.canonicalTitle} image={item.attributes.posterImage.large} epCount={item.attributes.episodeCount} ageRating={item.attributes.ageRatingGuide} japTitle={item.attributes.titles.ja_jp} style={styles.Container}/>;
-    }
+    }   
+    startList()
+
+    
   };
 
   return (
-      <View style={styles.View}>    
+      <View style={styles.View}>
         <FlatList
           data={data}
           renderItem={renderItem}
@@ -56,7 +78,7 @@ const List = ({ searchPhrase, data }) => {
   );
 };
 
-export default List;
+export default MyFavList;
 
 const styles = StyleSheet.create({
     AnimeImage: {

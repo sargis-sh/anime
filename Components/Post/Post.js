@@ -11,7 +11,7 @@ import json from '../../Helpers/Helper.js';
 let myArray = []
 const startList = async () => {
     try {
-        let value = await AsyncStorage.getItem('user');
+        let value = await AsyncStorage.getItem('myList');
         if (value != null){
         let data = await AsyncStorage.getItem("myList");
         myArray = JSON.parse(data);
